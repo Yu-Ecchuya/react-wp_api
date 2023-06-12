@@ -1,0 +1,22 @@
+# backend ignore
+backend/wp-admin/
+backend/wp-content/
+backend/wp-includes/
+backend/.htaccess
+backend/*.php
+backend/license.txt
+backend/readme.html
+backend/.gitignore
+backend/README.md
+
+# frontend ignore
+frontend/node_modules/
+frontend/public/
+frontend/build/
+frontend/README
+frontend/.cache/
+frontend/.gitignore
+frontend/README.md
+
+# common ignore
+.DS_Store
