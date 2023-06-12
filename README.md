@@ -1,8 +1,8 @@
 # Docker + React + WP REST API
-OS: Mac
-Environment: Docker
-Frontend: React
+OS: Mac<br>
+Environment: Docker<br>
+Frontend: React<br>
 Backend: WordPress(PHP)
 
 ## Overview
-ReactとWP REST APIを使用したブログサイトの構築# react-wp_api
+ReactとWP REST APIを使用したブログサイトの構築
