@@ -7,7 +7,7 @@ RUN a2enconf fqdn
 # 必要なパッケージをインストールする
 RUN set -eux; \
     apt-get update; \
-    apt-get install -y --no-install-recommends $PHPIZE_DEPS ca-certificates curl xz-utils; \
+    apt-get install -y --no-install-recommends openssl; \
     rm -rf /var/lib/apt/lists/*
 
 COPY . /var/www/html
