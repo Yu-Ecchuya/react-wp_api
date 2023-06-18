@@ -29,8 +29,6 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 
 2. wp-config.php 下記を追加
 ※ シークレットキーに 'https://api.wordpress.org/secret-key/1.1/salt/' で生成したキーを設定
-▼ 参考URL
-[https://api.wordpress.org/secret-key/1.1/salt/](https://api.wordpress.org/secret-key/1.1/salt/)
 
 ```wp-config.php
 # 秘密鍵の生成に用いる文字列をセット
@@ -45,6 +43,6 @@ define('JWT_AUTH_CORS_ENABLE', true);
 
 
 #  .env 設定
-REACT_APP_API_URL=WP側のURL
-REACT_APP_WP_USER_NAME=WPのユーザーネーム
+REACT_APP_API_URL=WP側のURL<br>
+REACT_APP_WP_USER_NAME=WPのユーザーネーム<br>
 REACT_APP_WP_PASSWORD=WPのパスワード
