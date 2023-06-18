@@ -6,16 +6,16 @@ services:
       dockerfile: Dockerfile
       # キャッシュを無効化するオプションを追加
       args:
-        - BUILD_DATE=${BUILD_DATE:-$(date +%Y-%m-%d)}
-        - CACHEBUST=${CACHEBUST:-$(date +%s)}
+        - BUILD_DATE=${BUILD_DATE}
+        - CACHEBUST=${CACHEBUST}
     ports:
       - "3000:3000"
     volumes:
       - ./frontend:/app
     depends_on:
       - backend
-    env_file:
-      - .env
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080
 
   backend:
     build:
@@ -23,8 +23,8 @@ services:
       dockerfile: Dockerfile
       # キャッシュを無効化するオプションを追加
       args:
-        - BUILD_DATE=${BUILD_DATE:-$(date +%Y-%m-%d)}
-        - CACHEBUST=${CACHEBUST:-$(date +%s)}
+        - BUILD_DATE=${BUILD_DATE}
+        - CACHEBUST=${CACHEBUST}
     ports:
       - "8080:80"
     volumes:
@@ -36,8 +36,6 @@ services:
       WORDPRESS_DB_PASSWORD: password
     depends_on:
       - db
-    env_file:
-      - .env
 
   db:
     image: mysql:latest
