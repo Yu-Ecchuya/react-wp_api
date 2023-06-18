@@ -20,3 +20,4 @@ frontend/README.md
 
 # common ignore
 .DS_Store
+**/.env
