@@ -1,11 +1,9 @@
 FROM node:16-alpine
-ARG BUILD_DATE
-ARG CACHEBUST
 WORKDIR /app
 COPY package.json ./
 COPY yarn.lock ./
 RUN yarn global add eslint
-COPY .eslintrc ./
+COPY .eslintrc /app/.eslintrc
 RUN yarn install
-COPY . ../.env
+COPY . .
 CMD ["yarn", "start"]
