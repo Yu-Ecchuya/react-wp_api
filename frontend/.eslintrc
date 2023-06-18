@@ -1,4 +1,5 @@
 {
+	"extends": "eslint:recommended",
 	"env": {
 	  "browser": true,
 	  "node": true,
@@ -11,15 +12,8 @@
 		"jsx": true
 	  }
 	},
-	"plugins": [
-	  "react"
-	],
-	"extends": [
-	  "eslint:recommended",
-	  "plugin:react/recommended"
-	],
 	"rules": {
-	  "no-unused-vars": "off",
-	  "react/prop-types": "off"
+	  "no-unused-vars": "off" // 使用されていない変数に関する警告を無効化する
 	}
-}
+  }
+  
