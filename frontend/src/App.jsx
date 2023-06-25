@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Contents from './components/Contents';
+import SNS from './components/SNS';
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
             Learn React
           </a>
           <Contents />
+          <SNS />
         </header>
       </div>
     );
