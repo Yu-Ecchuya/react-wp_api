@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { fetchAPI } from "../services/api";
 
-class Contents extends Component {
+class SNS extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      snsData: []
     };
 
     // 非同期キャンセル用の定義
@@ -18,8 +18,13 @@ class Contents extends Component {
     this.fetchTask = fetchAPI();
     const data = await this.fetchTask;
 
+    const snsInfoList = [];
+    data['snsData'].map((index => {
+      snsInfoList.push(index);
+    }));
+
     this.setState({
-      data: data['pages']
+      snsData: snsInfoList
     });
   }
 
@@ -29,16 +34,22 @@ class Contents extends Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { snsData } = this.state;
+
+    const snsList = snsData.map((index, value) => {
+      return (
+        <p key={value}>
+          {snsData.length > 0 && index}
+        </p>
+      )
+    });
 
     return (
       <div style={{ width: "100%", padding: "40px 0" }}>
-        <p>
-          {data.length > 0 && data[0].acf['Introductory_text']}
-        </p>
+        {snsList}
       </div>
     );
   }
 }
 
-export default Contents;
+export default SNS;
