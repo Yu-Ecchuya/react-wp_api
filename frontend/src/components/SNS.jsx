@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchAPI } from "../services/api";
+import { snsAPI } from "../services/api";
 
 class SNS extends Component {
   constructor(props) {
@@ -15,17 +15,17 @@ class SNS extends Component {
   }
 
   async componentDidMount() {
-    this.fetchTask = fetchAPI();
-    const data = await this.fetchTask;
-
-    const snsInfoList = [];
-    data['snsData'].map((index => {
-      snsInfoList.push(index);
-    }));
-
-    this.setState({
-      snsData: snsInfoList
-    });
+    try {
+      this.fetchTask = await snsAPI();
+      const data = this.fetchTask;
+      if (data) {
+        this.setState({
+          snsData: data,
+        });
+      }
+    } catch(error) {
+      console.error(error);
+    }
   }
 
   componentWillUnmount() {
@@ -38,15 +38,19 @@ class SNS extends Component {
 
     const snsList = snsData.map((index, value) => {
       return (
-        <p key={value}>
-          {snsData.length > 0 && index}
-        </p>
+          <li key={value}>
+            <a href={index.permalink} target="_blank" rel="noopener noreferrer">
+              <img src={index.media_url} alt={index.caption} />
+            </a>
+          </li>
       )
     });
 
     return (
       <div style={{ width: "100%", padding: "40px 0" }}>
-        {snsList}
+        <ul>
+          {snsList}
+        </ul>
       </div>
     );
   }
